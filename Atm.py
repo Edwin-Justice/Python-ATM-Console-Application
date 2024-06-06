@@ -42,3 +42,60 @@ if __name__ == "__main__":
     list_of_CardOwners.append(CardOwner("234567","2345","Kobby","Joe","5000.23"))
     list_of_CardOwners.append(CardOwner("345678","3456","Edwryu","Phoenix","70000.56"))
     list_of_CardOwners.append(CardOwner("456789","4567","Edwin","Wonder","56000"))
+
+
+    ### Prompt user for debit card number and validate
+    DebitCardNum = ""
+    while True:
+        try:
+            DebitCardNum = input("Please enter your credit card number ")
+            ### Check Card number against dummy repository
+            DebitMatch = [holder for holder in list_of_CardOwners if holder.CardNumber == DebitCardNum]
+            if(len(DebitMatch) > 0):
+                current_user = DebitMatch[0]
+                break
+            else:
+                print("Invalid Card Number")
+        except:
+            print("Invalid Card Number")
+
+    
+    ### Prompt for PIN
+    while True:
+        try:
+            UserPin = int(input("Input your PIN: ").strip())
+            if(current_user.get_Pin() == UserPin):
+                break
+            else:
+                print("Invalid PIN. Please try again")
+        except:
+            print("Invalid PIN. Please try again")
+
+    ### Print options now that they are logged in
+    print("Welcome ", current_user.get_FirstName(), ":)")
+    option = 0
+    while (True):
+        print_menu()
+        try:
+            option = int(input())
+        except:
+            print("Invalid input. Please try again")
+
+        if(option == 1):
+            deposit(current_user)
+
+        elif(option == 2):
+            withdraw(current_user)
+
+        elif(option == 3):
+            check_balance(current_user)
+
+        elif(option == 4):
+            break
+
+        else:
+            option = 0
+
+        print("Thank you. Have a nice day")
+
+
