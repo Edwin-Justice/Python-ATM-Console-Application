@@ -1,6 +1,6 @@
 ###Creating The Cardhplder Class and initalizing it
 
-class cardholder():
+class CardOwner():
     def __init__(self, CardNumber, Pin, Firstname, Lastname, Balance):
         self.CardNumber = CardNumber
         self.Pin = Pin
@@ -31,7 +31,7 @@ class cardholder():
     def set_Pin(self, newval):
         self.Pin = newval
 
-    def set_Firstname(self, newval):
+
         self.FirstName = newval
 
     def set_Lastname(self, newval):
