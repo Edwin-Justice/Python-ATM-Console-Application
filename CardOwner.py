@@ -31,7 +31,7 @@ class CardOwner():
     def set_Pin(self, newval):
         self.Pin = newval
 
-
+    def get_Firstname(self, newval):    
         self.FirstName = newval
 
     def set_Lastname(self, newval):
